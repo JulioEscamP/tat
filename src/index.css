@@ -1,0 +1,142 @@
+/* Page background */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Spark animation with light trail effect */
+@keyframes moveSpark {
+  0% {
+    bottom: -50px;
+    left: 50%;
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    bottom: 75%;
+    left: 50%;
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0);
+  }
+}
+
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  animation: moveSpark 2s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0.9;
+}
+
+/* Explosion effect */
+@keyframes explode {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.explosion {
+  position: absolute;
+  bottom: 75%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  animation: explode 1s forwards;
+  animation-delay: 3s; /* Matches the spark's position */
+}
+
+/* Dots for explosion */
+@keyframes fall {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30px, 200px) scale(0);
+    opacity: 0;
+  }
+}
+
+.dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  animation: fall 1.5s forwards;
+  animation-delay: 3s; /* After explosion */
+  opacity: 0;
+}
+
+.dot:nth-child(1) {
+  left: 50%;
+  animation-delay: 3.1s;
+}
+
+.dot:nth-child(2) {
+  left: 50%;
+  animation-delay: 3.2s;
+}
+
+.dot:nth-child(3) {
+  left: 50%;
+  animation-delay: 3.3s;
+}
+
+.dot:nth-child(4) {
+  left: 50%;
+  animation-delay: 3.4s;
+}
+
+.dot:nth-child(5) {
+  left: 45%;
+  animation-delay: 3.5s;
+}
+
+.dot:nth-child(6) {
+  left: 45%;
+  animation-delay: 3.6s;
+}
+
+.dot:nth-child(7) {
+  left: 55%;
+  animation-delay: 3.7s;
+}
+
+.dot:nth-child(8) {
+  left: 55%;
+  animation-delay: 3.8s;
+}
+
+/* Happy birthday text */
+.happy-birthday {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 3.5s; /* After explosion */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

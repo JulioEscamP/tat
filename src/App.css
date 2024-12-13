@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Silk Flower'; 
+  src: url('./assets/Silk\ Flower.otf') format('opentype'); 
+  font-weight: normal; /* Set the weight (normal, bold, etc.) */
+  font-style: normal; /* Set the style (normal, italic, etc.) */
+}
+
+/* General body styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #D8C79F; /* Tan background */
+  font-family: 'Silk Flower', sans-serif;
+}
+
+/* Scrolling Text Background */
+.text-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Container for scrolling text rows */
+.container {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.scrolling-text {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.scrolling-text-content {
+  color: #ffa500; /* Orange text */
+  font-size: 70px;
+  white-space: nowrap;
+  line-height: 1em;
+  font-weight: bold;
+  margin: 0;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+}
+
+/* Left-to-right animation */
+.container.left-to-right .scrolling-text {
+  animation: moveRight linear infinite;
+  animation-duration: 10s;
+}
+
+/* Right-to-left animation */
+.container:not(.left-to-right) .scrolling-text {
+  animation: moveLeft linear infinite;
+  animation-duration: 10s;
+}
+
+/* Keyframes for scrolling text */
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Flower Container */
+.flower-container {
+  position: absolute;
+  bottom: 5%; /* Adjust as needed for spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Ensure it appears above other elements */
+}
